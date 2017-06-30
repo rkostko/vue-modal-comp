@@ -1,0 +1,15 @@
+*.njsproj
+*.ntvs*
+*.sln
+*.suo
+.DS_Store
+.idea
+/dist
+/test/e2e/reports
+/test/unit/coverage
+/yarn-debug.log*
+/yarn-error.log*
+node_modules
+npm-debug.log*
+selenium-debug.log
+Thumbs.db
