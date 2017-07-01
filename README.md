@@ -17,7 +17,7 @@ This is package is made from 4 components:
 - [Confirm.vue](https://github.com/benjamincrozat/vue-modal-component/tree/develop#confirmvue)
 - [Prompt.vue](https://github.com/benjamincrozat/vue-modal-component/tree/develop#promptvue)
 
-**Please note that the CSS is not included. It's totally up to you to make it looks however you want.** You can take inspiration from [the demo](index.html), though.
+**Please note that the CSS is not included. It's totally up to you to make it looks however you want.** You can take inspiration from [the demo's code](index.html), though.
 
 ### Modal.vue
 
