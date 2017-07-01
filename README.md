@@ -17,6 +17,8 @@ This is package is made from 4 components:
 - [Confirm.vue](https://github.com/benjamincrozat/vue-modal-component/tree/develop#confirmvue)
 - [Prompt.vue](https://github.com/benjamincrozat/vue-modal-component/tree/develop#promptvue)
 
+**Please note that the CSS is not included. It's totally up to you to make it looks however you want.** You can take inspiration from [the demo](index.html), though.
+
 ### Modal.vue
 
 The basic one. Just a modal with a close button. You can put any content in it.
@@ -80,7 +82,9 @@ It imitates a JavaScript `confirm()` dialog. This component adds "Cancel" and "O
 <template>
     ...
 
-    <confirm title-text="Lorem ipsum dolor sit amet" ref="confirm">
+    <confirm @cancel="doSomethingIfTheUserCancels"
+             @confirm="doSomethingIfTheUserConfirms"
+             title-text="Lorem ipsum dolor sit amet" ref="confirm">
         <p>Consectetur adipisicing elit. Commodi ex a nam eum recusandae quod fugit velit doloribus fuga, porro consequuntur saepe aliquam nesciunt ipsa accusamus necessitatibus, adipisci suscipit debitis.</p>
     </confirm>
 </template>
@@ -104,7 +108,10 @@ It imitates a JavaScript `prompt()` dialog. This component adds "Cancel" and "OK
 <template>
     ...
 
-    <prompt title-text="Lorem ipsum dolor sit amet" ref="prompt">
+    <prompt @confirm="doSomethingWithTheValue"
+            title-text="Lorem ipsum dolor sit amet"
+            ref="prompt"
+    >
         <p>Consectetur adipisicing elit. Commodi ex a nam eum recusandae quod fugit velit doloribus fuga, porro consequuntur saepe aliquam nesciunt ipsa accusamus necessitatibus, adipisci suscipit debitis.</p>
     </prompt>
 </template>
@@ -115,6 +122,12 @@ It imitates a JavaScript `prompt()` dialog. This component adds "Cancel" and "OK
     export default {
         components: {
             Confirm
+        },
+
+        methods: {
+            doSomethingWithTheValue(value) {
+                console.log(value)
+            }
         }
     }
 </script>
