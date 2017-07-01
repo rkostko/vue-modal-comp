@@ -10,7 +10,12 @@ npm install vue-modal-component --save
 
 ## Usage
 
-This is package is made from 4 components.
+This is package is made from 4 components:
+
+- [Modal.vue](https://github.com/benjamincrozat/vue-modal-component/tree/develop#modalvue)
+- [Alert.vue](https://github.com/benjamincrozat/vue-modal-component/tree/develop#alertvue)
+- [Confirm.vue](https://github.com/benjamincrozat/vue-modal-component/tree/develop#confirmvue)
+- [Prompt.vue](https://github.com/benjamincrozat/vue-modal-component/tree/develop#promptvue)
 
 ### Modal.vue
 
