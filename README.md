@@ -33,7 +33,6 @@ The basic one. Just a modal with a close button. You can put any content in it.
     </button>
 
     <!-- The "modal" reference is needed to access its "visible" property. -->
-
     <modal title-text="Lorem ipsum dolor sit amet" ref="modal">
         <p>Consectetur adipisicing elit. Commodi ex a nam eum recusandae quod fugit velit doloribus fuga, porro consequuntur saepe aliquam nesciunt ipsa accusamus necessitatibus, adipisci suscipit debitis.</p>
     </modal>
