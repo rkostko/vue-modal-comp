@@ -5,6 +5,6 @@ Vue.config.productionTip = false
 
 new Vue({
     el: '#app',
-    template: '<modal></modal>',
+
     components: { Modal }
 })

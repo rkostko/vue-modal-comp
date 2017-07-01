@@ -1,37 +1,46 @@
 <template>
-    <div class="bc-m-container">
-        <aside class="bc-m">
-            <header class="bc-m__header">
-                <h1 class="bc-m__title">{{ titleText }}</h1>
+    <div class="vmc-container">
+        <transition name="vmc-modal-trans">
+            <aside class="vmc" v-if="visible">
+                <header class="vmc__header">
+                    <h1 class="vmc__title">{{ titleText }}</h1>
 
-                <button type="button"
-                        class="bc-m__close-btn"
-                        @click="$emit('cancel')"
-                >
-                    {{ closeButtonText }}
-                </button>
-            </header>
-
-            <div class="bc-m__content">
-                <slot></slot>
-            </div>
-
-            <footer class="bc-m__footer">
-                <div class="bc-m__cancel-btn-cont">
-                    <button type="button" class="bc-m__cancel-btn" @click="$emit('cancel')">
-                        {{ cancelButtonText }}
+                    <button type="button"
+                            class="vmc__close-btn"
+                            @click="cancel"
+                    >
+                        {{ closeButtonText }}
                     </button>
+                </header>
+
+                <div class="vmc__content">
+                    <slot></slot>
                 </div>
 
-                <div class="bc-m__confirm-btn-cont">
-                    <button type="button" class="bc-m__confirm-btn" @click="$emit('confirm')">
-                        {{ confirmButtonText }}
-                    </button>
-                </div>
-            </footer>
-        </aside>
+                <footer class="vmc__footer">
+                    <div class="vmc__btn-cont">
+                        <button type="button" class="vmc__cancel-btn" @click="cancel">
+                            {{ cancelButtonText }}
+                        </button>
+                    </div>
 
-        <div class="bc-m-overlay" @click="$emit('cancel')"></div>
+                    <div class="vmc__btn-cont">
+                        <button type="button"
+                                class="vmc__confirm-btn"
+                                :class="{ 'vmc__confirm-btn--destructive': destructive }"
+                                @click="confirm"
+                                autofocus
+                        >
+                            {{ confirmButtonText }}
+                        </button>
+                    </div>
+                </footer>
+            </aside>
+        </transition>
+
+        <transition name="vmc-overlay-trans">
+            <div class="vmc-overlay" @click="cancel" v-if="visible"></div>
+        </transition>
     </div>
 </template>
 
@@ -50,13 +59,48 @@
 
             confirmButtonText: {
                 type: String,
-                default: 'Confirm'
+                default: 'OK'
+            },
+
+            destructive: {
+                type: Boolean,
+                default: false
             },
 
             titleText: {
                 type: String,
                 default: null,
                 required: true
+            }
+        },
+
+        data() {
+            return {
+                visible: false
+            }
+        },
+
+        methods: {
+            cancel() {
+                this.visible = false
+
+                this.$emit('cancel')
+            },
+
+            confirm() {
+                this.visible = false
+
+                this.$emit('confirm')
+            }
+        },
+
+        mounted() {
+            window.onkeyup = e => {
+                if (!this.visible || e.keyCode !== 27) {
+                    return
+                }
+
+                this.cancel()
             }
         }
     }
