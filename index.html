@@ -25,6 +25,7 @@
             }
 
             body {
+                padding: 2em 0;
                 color: white;
                 background: #444;
                 font-family: Avenir Next, Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -54,9 +55,13 @@
                 border-spacing: 0;
             }
 
+            .toggle-btns {
+                display: flex;
+                justify-content: center;
+            }
+
             .toggle-btn {
-                display: table;
-                margin: 2em auto 0 auto;
+                margin: 0;
                 padding: 1em 3em;
                 color: white;
                 background: #82aaff;
@@ -64,6 +69,11 @@
                 font-weight: bold;
                 font-size: 1em;
                 text-transform: uppercase;
+                appearance: none;
+            }
+
+            .toggle-btn:not(:last-child) {
+                margin-right: 1em;
             }
 
             .vmc {
@@ -128,34 +138,26 @@
             .vmc__footer {
                 display: flex;
                 justify-content: center;
-                padding-bottom: 1em;
+                padding: 0 .5em 1em .5em;
             }
 
             .vmc__btn-cont {
+                flex: 0 0 auto;
                 padding: 0 .5em;
             }
 
-            .vmc__cancel-btn,
-            .vmc__confirm-btn {
+            .vmc__btn {
                 margin: 0;
                 padding: 1em 3em;
                 color: white;
-                background: transparent;
+                background: #333;
                 border: 2px solid transparent;
                 font-weight: bold;
                 font-size: 1em;
                 text-transform: uppercase;
             }
 
-            .vmc__cancel-btn {
-                background: #333;
-            }
-
-            .vmc__confirm-btn {
-                background: #84acfc;
-            }
-
-            .vmc__confirm-btn--destructive {
+            .vmc__btn--destructive {
                 background: #df8064;
             }
 
@@ -183,11 +185,59 @@
     </head>
     <body>
         <div id="app">
-            <button type="button" class="toggle-btn" @click="$refs.modal.visible = !$refs.modal.visible">Toggle Modal</button>
+            <div class="toggle-btns">
+                <button type="button"
+                        class="toggle-btn"
+                        @click="$refs.modal.visible = true"
+                >
+                    Modal
+                </button>
 
-            <modal :destructive="true" title-text="Hello!" ref="modal">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quidem dolore culpa voluptate, magni saepe repellendus iure eius sit consectetur. Cum omnis repudiandae debitis rem dicta, explicabo impedit consequuntur. Nihil.</p>
+                <button type="button"
+                        class="toggle-btn"
+                        @click="$refs.alert.setVisible(true)"
+                >
+                    Alert
+                </button>
+
+                <button type="button"
+                        class="toggle-btn"
+                        @click="$refs.confirm.setVisible(true)"
+                >
+                    Confirm
+                </button>
+
+                <button type="button"
+                        class="toggle-btn"
+                        :destructive="true"
+                        @click="$refs.confirm.setVisible(true)"
+                >
+                    Destructive Confirm
+                </button>
+
+                <!-- <button type="button"
+                        class="toggle-btn"
+                        @click="$refs.prompt.setVisible(true)"
+                >
+                    Prompt
+                </button> -->
+            </div>
+
+            <modal title-text="Modal" ref="modal">
+                <p>Modal content.</p>
             </modal>
+
+            <alert title-text="Alert" ref="alert">
+                <p>Alert modal content.</p>
+            </alert>
+
+            <confirm title-text="Confirm" :destructive="true" ref="confirm">
+                <p>Confirm modal content.</p>
+            </confirm>
+
+            <!-- <prompt title-text="Prompt" ref="prompt">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quidem dolore culpa voluptate, magni saepe repellendus iure eius sit consectetur. Cum omnis repudiandae debitis rem dicta, explicabo impedit consequuntur. Nihil.</p>
+            </prompt> -->
         </div>
     </body>
 </html>

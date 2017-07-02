@@ -17,21 +17,15 @@
                     <slot></slot>
                 </div>
 
-                <footer class="vmc__footer">
-                    <div class="vmc__btn-cont">
-                        <button type="button" class="vmc__cancel-btn" @click="cancel">
-                            {{ cancelButtonText }}
-                        </button>
-                    </div>
-
-                    <div class="vmc__btn-cont">
+                <footer class="vmc__footer" v-if="buttons">
+                    <div class="vmc__btn-cont" v-for="button in buttons">
                         <button type="button"
-                                class="vmc__confirm-btn"
-                                :class="{ 'vmc__confirm-btn--destructive': destructive }"
-                                @click="confirm"
-                                autofocus
+                                class="vmc__btn"
+                                :class="{ 'vmc__btn--destructive': button.destructive }"
+                                :autofocus="button.autofocus"
+                                @click="button.callback"
                         >
-                            {{ confirmButtonText }}
+                            {{ button.text }}
                         </button>
                     </div>
                 </footer>
@@ -47,24 +41,14 @@
 <script>
     export default {
         props: {
-            cancelButtonText: {
-                type: String,
-                default: 'Cancel'
+            buttons: {
+                type: Array,
+                default: null
             },
 
             closeButtonText: {
                 type: String,
                 default: 'Close'
-            },
-
-            confirmButtonText: {
-                type: String,
-                default: 'OK'
-            },
-
-            destructive: {
-                type: Boolean,
-                default: false
             },
 
             titleText: {
@@ -85,18 +69,12 @@
                 this.visible = false
 
                 this.$emit('cancel')
-            },
-
-            confirm() {
-                this.visible = false
-
-                this.$emit('confirm')
             }
         },
 
         mounted() {
             window.onkeyup = e => {
-                if (!this.visible || e.keyCode !== 27) {
+                if (e.keyCode !== 27) {
                     return
                 }
 
