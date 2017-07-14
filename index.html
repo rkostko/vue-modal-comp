@@ -27,7 +27,7 @@
             }
 
             body {
-                line-height: 1;
+                line-height: 1.5;
             }
 
             ol,
@@ -181,11 +181,13 @@
                 text-transform: uppercase;
                 appearance: none;
             }
-                .toggle-btn:not(:first-child) {
-                    margin-top: 1em;
-                }
                 .toggle-btn:not(:last-child) {
                     margin-right: 1em;
+                }
+                @media (max-width: 568px) {
+                    .toggle-btn:not(:first-child) {
+                        margin-top: 1em;
+                    }
                 }
 
             .vmc {
@@ -193,13 +195,14 @@
                 top: 50%;
                 left: 50%;
                 z-index: 2;
-                min-width: 320px;
+                width: calc(100% - 2em);
                 background-color: #444;
                 transform: translate(-50%, -50%);
             }
                 @media (min-width: 768px) {
                     .vmc {
                         min-width: 480px;
+                        width: auto;
                     }
                 }
 
@@ -217,7 +220,7 @@
 
             .vmc__header {
                 position: relative;
-                padding: 1em;
+                padding: 1rem 1rem 1rem 3rem;
                 background-color: #333;
                 text-align: center;
             }
@@ -238,8 +241,8 @@
                 position: absolute;
                 top: 50%;
                 left: 1rem;
-                width: 16px;
-                height: 16px;
+                width: 1rem;
+                height: 1rem;
                 margin: 0;
                 padding: 0;
                 overflow: hidden;
@@ -252,7 +255,9 @@
             }
 
             .vmc__content {
-                padding: 2em 1em;
+                max-height: 50vh;
+                margin: 1em;
+                overflow-y: auto;
                 line-height: 1.5;
             }
 
@@ -264,12 +269,12 @@
 
             .vmc__btn {
                 margin: 0;
-                padding: 1em 3em;
+                padding: .75rem 1rem;
                 color: white;
                 background-color: #333;
                 border: 2px solid transparent;
                 font-weight: bold;
-                font-size: 1em;
+                font-size: .875em;
                 text-transform: uppercase;
                 transition: background-color .2s ease-out;
             }
@@ -279,6 +284,12 @@
                 }
                 .vmc__btn:not(:last-child) {
                     margin-right: 1em;
+                }
+                @media (min-width: 768px) {
+                    .vmc__btn {
+                        padding: 1rem 3rem;
+                        font-size: 1rem;
+                    }
                 }
 
             .vmc__btn--validate {
@@ -345,6 +356,13 @@
                 >
                     Alert
                 </button>
+
+                <button type="button"
+                        class="toggle-btn"
+                        @click="$refs.alertWithOverflow.setVisible(true)"
+                >
+                    Alert with lot of content
+                </button>
             </div>
 
             <h2>Confirmation</h2>
@@ -389,7 +407,17 @@
             <alert title-text="Alert"
                    ref="alert"
             >
-                <p>This is an alert type modal.</p>
+                <p>This is a modal with an "OK" button.</p>
+            </alert>
+
+            <alert title-text="Alert with lot of content"
+                   ref="alertWithOverflow"
+            >
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem, et. Pariatur, illum, reprehenderit. Perferendis odit exercitationem quia omnis, quasi in ipsa aspernatur sequi cum veniam. Officia culpa maiores excepturi sapiente, distinctio odit, id laudantium reprehenderit itaque sed neque, hic dolorem tempore ullam consequatur corporis earum! Adipisci aut pariatur asperiores, magnam quam tempore, provident perspiciatis vitae.</p>
+
+                <p>Voluptate itaque labore dignissimos molestias natus nisi cum ducimus. Iste vero possimus voluptatem maxime totam odit officiis sint atque voluptates cum esse fugit deleniti quae quia dolor ex quaerat, nihil sapiente tempora animi laborum quod, ut autem? Officiis nesciunt ipsa veniam necessitatibus architecto nihil quae, ut quam quis sunt placeat accusantium, eligendi aperiam eveniet repellendus, fugiat hic temporibus blanditiis laboriosam itaque deserunt, fuga eaque. Porro consequuntur ducimus natus, non necessitatibus at dolor eveniet, saepe magnam deserunt dolore ipsa eum, fuga delectus eos suscipit dolorum accusantium quibusdam veritatis officiis. Facere pariatur doloribus magnam. Dolorum quam ullam similique quia recusandae ipsa nihil excepturi est dolore, ipsum vel minima cum, commodi eaque laudantium, neque incidunt facere perspiciatis beatae?</p>
+
+                <p>Nobis quos, ullam mollitia nam veritatis neque dolor dolorum temporibus, ipsam doloribus quam, natus dolores recusandae explicabo rerum accusantium minima corporis libero labore reiciendis commodi ipsa doloremque itaque. Sint, officia!</p>
             </alert>
 
             <confirm title-text="Confirm"
