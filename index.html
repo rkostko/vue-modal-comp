@@ -7,6 +7,8 @@
         <title>vue-modal-component</title>
 
         <style>
+            /* Reset */
+
             * {
                 box-sizing: border-box;
             }
@@ -25,10 +27,6 @@
             }
 
             body {
-                padding: 2em 0;
-                color: white;
-                background: #444;
-                font-family: Avenir Next, Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
                 line-height: 1;
             }
 
@@ -55,26 +53,140 @@
                 border-spacing: 0;
             }
 
-            .toggle-btns {
-                display: flex;
-                justify-content: center;
+            /* Page's styles */
+
+            body {
+                padding: 1em 0;
+                color: white;
+                background-color: #444;
+                font-family: Avenir Next, Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+            }
+                @media (min-width: 1024px) {
+                    body {
+                        padding: 4em 0;
+                    }
+                }
+
+            h1,
+            h2,
+            h3,
+            h4,
+            h5,
+            h6 {
+                font-weight: bold;
+                text-transform: uppercase;
             }
 
+            h1:not(:last-child),
+            h2:not(:last-child),
+            h3:not(:last-child),
+            h4:not(:last-child),
+            h5:not(:last-child),
+            h6:not(:last-child),
+            p:not(:last-child),
+            ol:not(:last-child),
+            ul:not(:last-child) {
+                margin-bottom: 1em;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+                h2:not(:first-of-type) {
+                    margin-top: 4rem;
+                }
+
+            h3 {
+                font-size: 1.25em;
+            }
+
+            input[type="email"],
+            input[type="number"],
+            input[type="password"],
+            input[type="search"],
+            input[type="tel"],
+            input[type="text"],
+            input[type="time"],
+            input[type="url"],
+            textarea {
+                width: 100%;
+                margin: 1em 0 0 0;
+                padding: .9em 1em;
+                color: white;
+                background-color: #666;
+                border: 0;
+                font-size: 1em;
+                font-family: inherit;
+                transition: .2s ease-out;
+                transition-property: color, background-color;
+            }
+                input[type="email"]::placeholder,
+                input[type="number"]::placeholder,
+                input[type="password"]::placeholder,
+                input[type="search"]::placeholder,
+                input[type="tel"]::placeholder,
+                input[type="text"]::placeholder,
+                input[type="time"]::placeholder,
+                input[type="url"]::placeholder,
+                textarea::placeholder {
+                    transition: color .2s ease-out;
+                }
+                input[type="email"]:focus,
+                input[type="number"]:focus,
+                input[type="password"]:focus,
+                input[type="search"]:focus,
+                input[type="tel"]:focus,
+                input[type="text"]:focus,
+                input[type="time"]:focus,
+                input[type="url"]:focus,
+                textarea:focus {
+                    background-color: #777;
+                    outline: 0;
+                }
+                    input[type="email"]:focus::placeholder,
+                    input[type="number"]:focus::placeholder,
+                    input[type="password"]:focus::placeholder,
+                    input[type="search"]:focus::placeholder,
+                    input[type="tel"]:focus::placeholder,
+                    input[type="text"]:focus::placeholder,
+                    input[type="time"]:focus::placeholder,
+                    input[type="url"]:focus::placeholder,
+                    textarea:focus::placeholder {
+                        color: rgba(255, 255, 255, .75);
+                    }
+
+            #app {
+                padding: 0 1em;
+            }
+                @media (min-width: 1024px) {
+                    #app {
+                        width: 1024px;
+                        margin: 0 auto;
+                    }
+                }
+
             .toggle-btn {
+                flex: 0 1 auto;
                 margin: 0;
                 padding: 1em 3em;
                 color: white;
-                background: #82aaff;
+                background-color: #82aaff;
                 border: 0;
                 font-weight: bold;
                 font-size: 1em;
                 text-transform: uppercase;
                 appearance: none;
             }
-
-            .toggle-btn:not(:last-child) {
-                margin-right: 1em;
-            }
+                .toggle-btn:not(:first-child) {
+                    margin-top: 1em;
+                }
+                .toggle-btn:not(:last-child) {
+                    margin-right: 1em;
+                }
 
             .vmc {
                 position: fixed;
@@ -82,9 +194,14 @@
                 left: 50%;
                 z-index: 2;
                 min-width: 320px;
-                background: #444;
+                background-color: #444;
                 transform: translate(-50%, -50%);
             }
+                @media (min-width: 768px) {
+                    .vmc {
+                        min-width: 480px;
+                    }
+                }
 
             .vmc-overlay {
                 position: fixed;
@@ -93,7 +210,7 @@
                 left: 0;
                 right: 0;
                 z-index: 1;
-                background: rgba(0, 0, 0, .5);
+                background-color: rgba(0, 0, 0, .5);
                 -webkit-backdrop-filter: blur(10px);
                 backdrop-filter: blur(10px);
             }
@@ -101,7 +218,7 @@
             .vmc__header {
                 position: relative;
                 padding: 1em;
-                background: #333;
+                background-color: #333;
                 text-align: center;
             }
 
@@ -110,8 +227,12 @@
                 top: 1px;
                 color: white;
                 font-weight: bold;
+                font-size: 1rem;
                 text-transform: uppercase;
             }
+                .vmc__header h1:not(:last-child) {
+                    margin-bottom: 0;
+                }
 
             .vmc__close-btn {
                 position: absolute;
@@ -123,7 +244,7 @@
                 padding: 0;
                 overflow: hidden;
                 color: transparent;
-                background: #df8064;
+                background-color: #df8064;
                 border: 0;
                 border-radius: 50%;
                 font: 0/0 a;
@@ -135,109 +256,161 @@
                 line-height: 1.5;
             }
 
-            .vmc__footer {
+            .vmc__footer:not(:empty) {
                 display: flex;
                 justify-content: center;
-                padding: 0 .5em 1em .5em;
-            }
-
-            .vmc__btn-cont {
-                flex: 0 0 auto;
-                padding: 0 .5em;
+                padding: 0 1em 1em 1em;
             }
 
             .vmc__btn {
                 margin: 0;
                 padding: 1em 3em;
                 color: white;
-                background: #333;
+                background-color: #333;
                 border: 2px solid transparent;
                 font-weight: bold;
                 font-size: 1em;
                 text-transform: uppercase;
+                transition: background-color .2s ease-out;
             }
+                .vmc__btn:focus {
+                    background-color: #3c3c3c;
+                    outline: 0;
+                }
+                .vmc__btn:not(:last-child) {
+                    margin-right: 1em;
+                }
+
+            .vmc__btn--validate {
+                background-color: #82aaff;
+            }
+                .vmc__btn--validate:focus {
+                    background-color: #8bbdfc;
+                }
 
             .vmc__btn--destructive {
-                background: #df8064;
+                background-color: #df8064;
             }
+                .vmc__btn--destructive:focus {
+                    background-color: #ff9178;
+                }
 
-            .vmc-modal-trans-enter-active,
-            .vmc-modal-trans-leave-active {
+            .vmc-transition-enter-active,
+            .vmc-transition-leave-active {
                 transition: .1s ease-out;
             }
 
-            .vmc-modal-trans-enter,
-            .vmc-modal-trans-leave-to {
+            .vmc-transition-enter,
+            .vmc-transition-leave-to {
                 opacity: 0;
                 transform: translate(-50%, -50%) scale(.5);
             }
 
-            .vmc-overlay-trans-enter-active,
-            .vmc-overlay-trans-leave-active {
+            .vmc-overlay-transition-enter-active,
+            .vmc-overlay-transition-leave-active {
                 transition: opacity .2s ease-out;
             }
 
-            .vmc-overlay-trans-enter,
-            .vmc-overlay-trans-leave-to {
+            .vmc-overlay-transition-enter,
+            .vmc-overlay-transition-leave-to {
                 opacity: 0;
             }
         </style>
     </head>
     <body>
         <div id="app">
+            <h1>vue-modal-component</h1>
+
+            <h2>Modal</h2>
+
+            <p>Basic use of Modal.vue.</p>
+
             <div class="toggle-btns">
                 <button type="button"
                         class="toggle-btn"
-                        @click="$refs.modal.visible = true"
+                        @click="$refs.modal.setVisible(true)"
                 >
                     Modal
                 </button>
+            </div>
 
+            <h2>Alert</h2>
+
+            <p>A modal with a "OK" button.</p>
+
+            <div class="toggle-btns">
                 <button type="button"
                         class="toggle-btn"
                         @click="$refs.alert.setVisible(true)"
                 >
                     Alert
                 </button>
+            </div>
 
+            <h2>Confirmation</h2>
+
+            <p>A modal with "Cancel" and "Confirm" buttons.</p>
+
+            <div class="toggle-btns">
                 <button type="button"
                         class="toggle-btn"
                         @click="$refs.confirm.setVisible(true)"
                 >
-                    Confirm
+                    Confirmation
                 </button>
 
                 <button type="button"
                         class="toggle-btn"
-                        :destructive="true"
-                        @click="$refs.confirm.setVisible(true)"
+                        @click="$refs.destructiveConfirm.setVisible(true)"
                 >
-                    Destructive Confirm
+                    Destructive Confirmation
                 </button>
+            </div>
 
-                <!-- <button type="button"
+            <h2>Prompt</h2>
+
+            <p>Just like a confirm modal, but with an input.</p>
+
+            <div class="toggle-btns">
+                <button type="button"
                         class="toggle-btn"
                         @click="$refs.prompt.setVisible(true)"
                 >
                     Prompt
-                </button> -->
+                </button>
             </div>
 
-            <modal title-text="Modal" ref="modal">
-                <p>Modal content.</p>
+            <modal title-text="Modal"
+                   ref="modal"
+            >
+                <p>This is a simple modal with just a close button.</p>
             </modal>
 
-            <alert title-text="Alert" ref="alert">
-                <p>Alert modal content.</p>
+            <alert title-text="Alert"
+                   ref="alert"
+            >
+                <p>This is an alert type modal.</p>
             </alert>
 
-            <confirm title-text="Confirm" :destructive="true" ref="confirm">
-                <p>Confirm modal content.</p>
+            <confirm title-text="Confirm"
+                     ref="confirm"
+            >
+                <p>This is a confirmation type modal.</p>
             </confirm>
 
-            <!-- <prompt title-text="Prompt" ref="prompt">
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem quidem dolore culpa voluptate, magni saepe repellendus iure eius sit consectetur. Cum omnis repudiandae debitis rem dicta, explicabo impedit consequuntur. Nihil.</p>
-            </prompt> -->
+            <confirm :destructive="true"
+                     title-text="Destructive Confirmation"
+                     ref="destructiveConfirm"
+            >
+                <p>This is a destructive confirmation type modal.</p>
+            </confirm>
+
+            <prompt title-text="Prompt"
+                    @confirm="showPromptInput"
+                    ref="prompt"
+            >
+                <p>This is a prompt type modal.</p>
+            </prompt>
         </div>
     </body>
 </html>

@@ -1,32 +1,25 @@
 <template>
-    <modal :buttons="[
-               {
-                    text: cancelButtonText,
-                    callback: _ => $refs.modal.cancel()
-               },
-               {
-                    text: confirmButtonText,
-                    callback: confirm,
-                    destructive,
-                    autofocus: true
-               }
-           ]"
-           :close-button-text="closeButtonText"
-           :title-text="titleText"
-           ref="modal"
-    >
+    <modal :title-text="titleText" ref="modal">
         <slot></slot>
+
+        <modal-button @click="cancel" slot="buttons">
+            {{ cancelButtonText }}
+        </modal-button>
+
+        <modal-button :autofocus="true" :validate="destructive == false" :destructive="destructive" @click="confirm" slot="buttons">
+            {{ confirmButtonText }}
+        </modal-button>
     </modal>
 </template>
 
 <script>
     import Modal from './Modal'
+    import ModalButton from './ModalButton'
 
     export default {
-        extends: Modal,
-
         components: {
-            Modal
+            Modal,
+            ModalButton
         },
 
         props: {
@@ -37,16 +30,27 @@
 
             confirmButtonText: {
                 type: String,
-                default: 'OK'
+                default: 'Confirm'
             },
 
             destructive: {
                 type: Boolean,
                 default: false
+            },
+
+            titleText: {
+                type: String,
+                required: true
             }
         },
 
         methods: {
+            cancel() {
+                this.$refs.modal.visible = false
+
+                this.$emit('cancel')
+            },
+
             confirm() {
                 this.$refs.modal.visible = false
 
@@ -56,6 +60,12 @@
             setVisible(visible) {
                 this.$refs.modal.visible = visible
             }
+        },
+
+        mounted() {
+            this.$refs.modal.$on('cancel', _ => {
+                this.$emit('cancel')
+            })
         }
     }
 </script>
