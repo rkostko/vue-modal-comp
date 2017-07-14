@@ -57,7 +57,7 @@
 
             body {
                 padding: 1em 0;
-                color: white;
+                color: rgba(255, 255, 255, .8);
                 background-color: #444;
                 font-family: Avenir Next, Avenir, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
             }
@@ -73,6 +73,7 @@
             h4,
             h5,
             h6 {
+                color: white;
                 font-weight: bold;
                 text-transform: uppercase;
             }
@@ -102,6 +103,11 @@
 
             h3 {
                 font-size: 1.25em;
+            }
+
+            a {
+                color: white;
+                text-decoration: none;
             }
 
             input[type="email"],
@@ -260,6 +266,11 @@
                 overflow-y: auto;
                 line-height: 1.5;
             }
+                @media (min-width: 768px) {
+                    .vmc__content {
+                        margin: 2em;
+                    }
+                }
 
             .vmc__footer:not(:empty) {
                 display: flex;
@@ -331,6 +342,8 @@
     <body>
         <div id="app">
             <h1>vue-modal-component</h1>
+
+            <p>Take a look at the source code on <a href="https://github.com/benjamincrozat/vue-modal-component">GitHub</a>.</p>
 
             <h2>Modal</h2>
 
