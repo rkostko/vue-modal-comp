@@ -122,5 +122,17 @@
                 <p>This is a prompt type modal.</p>
             </prompt>
         </div>
+
+        <?php foreach (glob('dist/static/js/manifest.*.js') as $script) : ?>
+            <script src="/<?= $script; ?>"></script>
+        <?php endforeach; ?>
+
+        <?php foreach (glob('dist/static/js/vendor.*.js') as $script) : ?>
+            <script src="/<?= $script; ?>"></script>
+        <?php endforeach; ?>
+
+        <?php foreach (glob('dist/static/js/app.*.js') as $script) : ?>
+            <script src="/<?= $script; ?>"></script>
+        <?php endforeach; ?>
     </body>
 </html>
