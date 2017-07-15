@@ -30,13 +30,23 @@ And additional ones for common use cases:
 
 ### Modal.vue
 
+Coming soon…
+
 ### ModalButton.vue
+
+Coming soon…
 
 ### Alert.vue
 
+Coming soon…
+
 ### Confirm.vue
 
+Coming soon…
+
 ### Prompt.vue
+
+Coming soon…
 
 ## License
 
