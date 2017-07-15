@@ -19,12 +19,8 @@ new Vue({
     },
 
     methods: {
-        alert(text) {
-            alert(text)
-        },
-
-        showPromptInput(input) {
-            alert(input)
+        showPromptInput(userInput) {
+            alert(userInput)
         }
     }
 })
