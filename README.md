@@ -1,7 +1,7 @@
-[![Latest Version on NPM](https://img.shields.io/npm/v/vue-modal-component.svg?style=flat-square)](https://npmjs.com/package/vue-modal-component)
+[![Latest Version on NPM](https://img.shields.io/npm/v/bc-vue-modal-component.svg?style=flat-square)](https://npmjs.com/package/bc-vue-modal-component)
 [![Software License](https://img.shields.io/badge/license-WTFPL-brightgreen.svg?style=flat-square)](LICENSE.md)
 [![Build Status](https://img.shields.io/travis/benjamincrozat/vue-modal-component/master.svg?style=flat-square)](https://travis-ci.org/benjamincrozat/vue-modal-component)
-[![npm](https://img.shields.io/npm/dt/vue-modal-component.svg?style=flat-square)](https://www.npmjs.com/package/vue-modal-component)
+[![npm](https://img.shields.io/npm/dt/bc-vue-modal-component.svg?style=flat-square)](https://www.npmjs.com/package/bc-vue-modal-component)
 
 # vue-modal-component
 
@@ -10,7 +10,7 @@ A simple modal component for Vue.js.
 ## Installation
 
 ```bash
-npm install vue-modal-component --save
+npm install bc-vue-modal-component --save
 ```
 
 ## Usage
