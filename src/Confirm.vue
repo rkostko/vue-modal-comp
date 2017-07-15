@@ -1,5 +1,5 @@
 <template>
-    <modal :title-text="titleText" ref="modal">
+    <modal ref="modal">
         <slot></slot>
 
         <modal-button @click="cancel" slot="buttons">
@@ -15,12 +15,17 @@
 <script>
     import Modal from './Modal'
     import ModalButton from './ModalButton'
+    import { modalSupport } from './mixins'
 
     export default {
         components: {
             Modal,
             ModalButton
         },
+
+        mixins: [
+            modalSupport
+        ],
 
         props: {
             cancelButtonText: {
@@ -36,36 +41,7 @@
             destructive: {
                 type: Boolean,
                 default: false
-            },
-
-            titleText: {
-                type: String,
-                required: true
             }
-        },
-
-        methods: {
-            cancel() {
-                this.$refs.modal.visible = false
-
-                this.$emit('cancel')
-            },
-
-            confirm() {
-                this.$refs.modal.visible = false
-
-                this.$emit('confirm')
-            },
-
-            setVisible(visible) {
-                this.$refs.modal.visible = visible
-            }
-        },
-
-        mounted() {
-            this.$refs.modal.$on('cancel', _ => {
-                this.$emit('cancel')
-            })
         }
     }
 </script>

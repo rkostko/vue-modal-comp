@@ -3,7 +3,7 @@
         <transition name="vmc-transition">
             <aside class="vmc" v-if="visible">
                 <header class="vmc__header">
-                    <h1 class="vmc__title">{{ titleText }}</h1>
+                    <slot name="title"></slot>
 
                     <button type="button"
                             class="vmc__close-btn"
@@ -35,12 +35,6 @@
             closeButtonText: {
                 type: String,
                 default: 'Close'
-            },
-
-            titleText: {
-                type: String,
-                default: null,
-                required: true
             }
         },
 
