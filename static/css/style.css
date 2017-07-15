@@ -213,6 +213,7 @@ textarea {
     background-color: rgba(0, 0, 0, .5);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .vmc__header {
@@ -249,12 +250,14 @@ textarea {
     border-radius: 50%;
     font: 0/0 a;
     transform: translateY(-50%);
+    -webkit-tap-highlight-color: transparent;
 }
 
 .vmc__content {
     max-height: 50vh;
     margin: 1em;
     overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     line-height: 1.5;
 }
     @media (min-width: 768px) {
@@ -279,6 +282,7 @@ textarea {
     font-size: .875em;
     text-transform: uppercase;
     transition: background-color .2s ease-out;
+    -webkit-tap-highlight-color: transparent;
 }
     .vmc__btn:focus {
         background-color: #3c3c3c;
