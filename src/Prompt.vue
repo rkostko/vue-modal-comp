@@ -49,6 +49,18 @@
             return {
                 userInput: ''
             }
+        },
+
+        methods: {
+            confirm() {
+                if (!this.$refs.modal) {
+                    return
+                }
+
+                this.$refs.modal.visible = false
+
+                this.$emit('confirm', this.userInput)
+            }
         }
     }
 </script>
