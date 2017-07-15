@@ -1,5 +1,5 @@
 <template>
-    <button :type="type"
+    <button type="button"
             class="vmc__btn"
             :class="{
                 'vmc__btn--validate': validate,
@@ -23,11 +23,6 @@
             destructive: {
                 type: Boolean,
                 default: false
-            },
-
-            type: {
-                type: String,
-                default: 'button'
             },
 
             validate: {

@@ -52,21 +52,4 @@ describe('ModalButton.vue', () => {
             done()
         })
     })
-
-    it('should render as a submit type', done => {
-        const Constructor = Vue.extend(ModalButton)
-
-        const vm = new Constructor({
-            propsData: {
-                type: 'submit'
-            }
-        }).$mount()
-
-        vm.$nextTick(() => {
-            expect(vm.$el.getAttribute('type'))
-                .to.equal('submit')
-
-            done()
-        })
-    })
 })
