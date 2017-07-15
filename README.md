@@ -5,7 +5,7 @@
 
 # vue-modal-component
 
-A simple modal component for Vue.js.
+A simple modal component for Vue.js. [Live demo here](https://vue-modal-component.benjamincrozat.com/).
 
 ## Installation
 
