@@ -47,7 +47,7 @@
 
         data() {
             return {
-                userInput: ''
+                userInput: null
             }
         },
 
