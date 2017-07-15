@@ -15,7 +15,7 @@ npm install bc-vue-modal-component --save
 
 ## Usage
 
-** This package is not finalized yet. Don't use it in production until it reaches 1.0.0.**
+**This package is not finalized yet. Don't use it in production until it reaches 1.0.0.**
 
 This package has two main components:
 - [Modal.vue](https://github.com/benjamincrozat/vue-modal-component/tree/develop#modalvue)
@@ -27,6 +27,16 @@ And additional ones for common use cases:
 - [Prompt.vue](https://github.com/benjamincrozat/vue-modal-component/tree/develop#promptvue)
 
 **Please note that the CSS is not included. It's totally up to you to make it looks however you want.** You can take inspiration from [the demo's code](static/css/style.css), though.
+
+### Modal.vue
+
+### ModalButton.vue
+
+### Alert.vue
+
+### Confirm.vue
+
+### Prompt.vue
 
 ## License
 
