@@ -4,6 +4,7 @@
 
         <input type="text"
                v-model="userInput"
+               autofocus
                @keyup.enter="confirm"
         >
 
