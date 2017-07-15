@@ -9,9 +9,9 @@
 </template>
 
 <script>
-    import Modal from '@/Modal'
-    import ModalButton from '@/ModalButton'
-    import { modalSupport } from '@/mixins'
+    import Modal from './Modal'
+    import ModalButton from './ModalButton'
+    import { modalSupport } from './mixins'
 
     export default {
         components: {
