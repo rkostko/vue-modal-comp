@@ -28,7 +28,7 @@ describe('Modal.vue', () => {
 
     it('should render custom close button text', done => {
         vm.$nextTick(() => {
-            expect(vm.$el.querySelector('.vmc__close-btn').textContent.trim())
+            expect(vm.$el.querySelector('.vmc__header .vmc__close-btn').textContent.trim())
                 .to.equal(closeButtonText)
 
             done()
@@ -37,7 +37,7 @@ describe('Modal.vue', () => {
 
     it('should render the title', done => {
         vm.$nextTick(() => {
-            expect(vm.$el.querySelector('.vmc__header > h1').textContent.trim())
+            expect(vm.$el.querySelector('.vmc__header h1').textContent.trim())
                 .to.equal(titleText)
 
             done()
@@ -55,7 +55,7 @@ describe('Modal.vue', () => {
 
     it('should render three buttons', done => {
         vm.$nextTick(() => {
-            expect(vm.$el.querySelectorAll('.vmc__btn').length)
+            expect(vm.$el.querySelectorAll('.vmc__footer .vmc__btn').length)
                 .to.equal(3)
 
             done()
