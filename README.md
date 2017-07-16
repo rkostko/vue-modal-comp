@@ -15,10 +15,6 @@ npm install bc-vue-modal-component --save
 
 You may need to install those packages until I improve the configuration of this projet:
 
-```bash
-npm install babel-plugin-transform-runtime babel-preset-stage-2 --save-dev
-```
-
 ## Usage
 
 **This package is not finalized yet. Don't use it in production until it reaches 1.0.0.**
