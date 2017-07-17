@@ -8,11 +8,14 @@
                @keyup.enter="confirm"
         >
 
-        <modal-button @click="cancel" slot="buttons">
+        <modal-button @click="close" slot="buttons">
             {{ cancelButtonText }}
         </modal-button>
 
-        <modal-button :validate="true" @click="confirm" slot="buttons">
+        <modal-button :validate="true"
+                      @click="confirm(userInput)"
+                      slot="buttons"
+        >
             {{ confirmButtonText }}
         </modal-button>
     </modal>
@@ -48,18 +51,6 @@
         data() {
             return {
                 userInput: null
-            }
-        },
-
-        methods: {
-            confirm() {
-                if (!this.$refs.modal) {
-                    return
-                }
-
-                this.$refs.modal.visible = false
-
-                this.$emit('confirm', this.userInput)
             }
         }
     }

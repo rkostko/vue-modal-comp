@@ -30,7 +30,30 @@ And additional ones for common use cases:
 
 ### Modal.vue
 
-Coming soon…
+```javascript
+import { Modal, ModalButton } from 'vue-modal-comp'
+
+export default {
+    components: {
+        Modal,
+        ModalButton
+    }
+}
+```
+
+```html
+<button type="button" @click="$refs.modal.toggle()">
+    Toggle
+</button>
+
+<modal ref="modal">
+    <h1 slot="title">Hello, World!</h1>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum illo corrupti totam necessitatibus iste, accusantium ex, molestias magnam nisi quod!</p>
+
+    <modal-button @click="$refs.modal.close()">OK</modal-button>
+</modal>
+```
 
 ### ModalButton.vue
 

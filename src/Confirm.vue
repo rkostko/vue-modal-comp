@@ -2,11 +2,18 @@
     <modal ref="modal">
         <slot></slot>
 
-        <modal-button @click="cancel" slot="buttons">
+        <modal-button @click="close"
+                      slot="buttons"
+        >
             {{ cancelButtonText }}
         </modal-button>
 
-        <modal-button :autofocus="true" :validate="destructive == false" :destructive="destructive" @click="confirm" slot="buttons">
+        <modal-button :autofocus="true"
+                      :validate="destructive == false"
+                      :destructive="destructive"
+                      @click="confirm"
+                      slot="buttons"
+        >
             {{ confirmButtonText }}
         </modal-button>
     </modal>

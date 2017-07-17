@@ -2,7 +2,7 @@ import Vue from 'vue'
 import ModalButton from '@/ModalButton'
 
 describe('ModalButton.vue', () => {
-    it('should render as validation button', done => {
+    it('should render as validation button', () => {
         const Constructor = Vue.extend(ModalButton)
 
         const vm = new Constructor({
@@ -11,15 +11,11 @@ describe('ModalButton.vue', () => {
             }
         }).$mount()
 
-        vm.$nextTick(() => {
-            expect(vm.$el.classList.contains('vmc__btn--validate'))
-                .to.be.true
-
-            done()
-        })
+        expect(vm.$el.classList.contains('vmc-modal__btn--validate'))
+            .to.be.true
     })
 
-    it('should render autofocused', done => {
+    it('should render autofocused', () => {
         const Constructor = Vue.extend(ModalButton)
 
         const vm = new Constructor({
@@ -28,15 +24,11 @@ describe('ModalButton.vue', () => {
             }
         }).$mount()
 
-        vm.$nextTick(() => {
-            expect(vm.$el.getAttribute('autofocus'))
-                .to.not.be.null
-
-            done()
-        })
+        expect(vm.$el.getAttribute('autofocus'))
+            .to.not.be.null
     })
 
-    it('should render as a delete button', done => {
+    it('should render as a delete button', () => {
         const Constructor = Vue.extend(ModalButton)
 
         const vm = new Constructor({
@@ -45,11 +37,7 @@ describe('ModalButton.vue', () => {
             }
         }).$mount()
 
-        vm.$nextTick(() => {
-            expect(vm.$el.classList.contains('vmc__btn--destructive'))
-                .to.be.true
-
-            done()
-        })
+        expect(vm.$el.classList.contains('vmc-modal__btn--destructive'))
+            .to.be.true
     })
 })

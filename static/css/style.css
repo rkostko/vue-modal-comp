@@ -188,7 +188,7 @@ textarea {
         }
     }
 
-.vmc {
+.vmc-modal {
     position: fixed;
     top: 50%;
     left: 50%;
@@ -198,33 +198,23 @@ textarea {
     transform: translate(-50%, -50%);
 }
     @media (min-width: 768px) {
-        .vmc {
+        .vmc-modal {
             min-width: 480px;
             width: auto;
         }
     }
+    .vmc-modal--overlay-hidden {
+        box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+    }
 
-.vmc-overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
-    background-color: rgba(0, 0, 0, .5);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-    -webkit-tap-highlight-color: transparent;
-}
-
-.vmc__header {
+.vmc-modal__header {
     position: relative;
     padding: 1rem;
     background-color: #333;
     text-align: center;
 }
 
-.vmc__header h1 {
+.vmc-modal__header h1 {
     position: relative;
     top: 1px;
     color: white;
@@ -232,11 +222,11 @@ textarea {
     font-size: 1rem;
     text-transform: uppercase;
 }
-    .vmc__header h1:not(:last-child) {
+    .vmc-modal__header h1:not(:last-child) {
         margin-bottom: 0;
     }
 
-.vmc__close-btn {
+.vmc-modal__close-btn {
     position: absolute;
     top: 50%;
     left: 1rem;
@@ -254,7 +244,7 @@ textarea {
     -webkit-tap-highlight-color: transparent;
 }
 
-.vmc__content {
+.vmc-modal__content {
     max-height: 50vh;
     margin: 1em;
     overflow-y: auto;
@@ -267,13 +257,13 @@ textarea {
         }
     }
 
-.vmc__footer:not(:empty) {
+.vmc-modal__footer:not(:empty) {
     display: flex;
     justify-content: center;
     padding: 0 1em 1em 1em;
 }
 
-.vmc__btn {
+.vmc-modal__btn {
     margin: 0;
     padding: .75rem 1rem;
     color: white;
@@ -285,41 +275,54 @@ textarea {
     transition: background-color .2s ease-out;
     -webkit-tap-highlight-color: transparent;
 }
-    .vmc__btn:focus {
+    .vmc-modal__btn:focus {
         background-color: #3c3c3c;
         outline: 0;
     }
-    .vmc__btn:not(:last-child) {
+    .vmc-modal__btn:not(:last-child) {
         margin-right: 1em;
     }
     @media (min-width: 768px) {
-        .vmc__btn {
+        .vmc-modal__btn {
             padding: 1rem 3rem;
             font-size: 1rem;
         }
     }
 
-.vmc__btn--validate {
+.vmc-modal__btn--validate {
     background-color: #82aaff;
 }
-    .vmc__btn--validate:focus {
+    .vmc-modal__btn--validate:focus {
         background-color: #8bbdfc;
     }
 
-.vmc__btn--destructive {
+.vmc-modal__btn--destructive {
     background-color: #df8064;
 }
-    .vmc__btn--destructive:focus {
+    .vmc-modal__btn--destructive:focus {
         background-color: #ff9178;
     }
 
-.vmc-transition-enter-active,
-.vmc-transition-leave-active {
+.vmc-overlay {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    background-color: rgba(0, 0, 0, .5);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.vmc-modal-transition-enter-active,
+.vmc-modal-transition-leave-active {
     transition: .1s ease-out;
 }
 
-.vmc-transition-enter,
-.vmc-transition-leave-to {
+.vmc-modal-transition-enter,
+.vmc-modal-transition-leave-to {
     opacity: 0;
     transform: translate(-50%, -50%) scale(.5);
 }

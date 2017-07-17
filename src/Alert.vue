@@ -2,7 +2,10 @@
     <modal ref="modal">
         <slot></slot>
 
-        <modal-button :autofocus="true" @click="cancel" slot="buttons">
+        <modal-button :autofocus="true"
+                      @click="close"
+                      slot="buttons"
+        >
             {{ okButtonText }}
         </modal-button>
     </modal>

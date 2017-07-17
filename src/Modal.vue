@@ -1,30 +1,33 @@
 <template>
-    <div class="vmc-container">
-        <transition name="vmc-transition">
-            <aside class="vmc" v-if="visible">
-                <header class="vmc__header">
+    <div class="vmc">
+        <transition name="vmc-modal-transition">
+            <aside class="vmc-modal"
+                   :class="{ 'vmc-modal--overlay-hidden': overlayHidden }"
+                   v-if="visible"
+            >
+                <header class="vmc-modal__header">
                     <slot name="title"></slot>
 
                     <button type="button"
-                            class="vmc__close-btn"
-                            @click="cancel"
+                            class="vmc-modal__close-btn"
+                            @click="close"
                     >
                         {{ closeButtonText }}
                     </button>
                 </header>
 
-                <div class="vmc__content">
+                <div class="vmc-modal__content">
                     <slot></slot>
                 </div>
 
-                <footer class="vmc__footer" v-if="$slots.buttons">
+                <footer class="vmc-modal__footer" v-if="$slots.buttons">
                     <slot name="buttons"></slot>
                 </footer>
             </aside>
         </transition>
 
-        <transition name="vmc-overlay-transition">
-            <div class="vmc-overlay" @click="cancel" v-if="visible"></div>
+        <transition name="vmc-overlay-transition" v-if="!overlayHidden">
+            <div class="vmc-overlay" @click="close" v-if="visible"></div>
         </transition>
     </div>
 </template>
@@ -35,6 +38,11 @@
             closeButtonText: {
                 type: String,
                 default: 'Close'
+            },
+
+            overlayHidden: {
+                type: Boolean,
+                default: false
             }
         },
 
@@ -45,14 +53,24 @@
         },
 
         methods: {
-            cancel() {
-                this.visible = false
+            open() {
+                this.visible = true
 
-                this.$emit('cancel')
+                this.$emit('opened')
             },
 
-            setVisible(visible) {
-                this.visible = visible
+            close() {
+                this.visible = false
+
+                this.$emit('closed')
+            },
+
+            toggle() {
+                if (this.visible) {
+                    this.close()
+                } else {
+                    this.open()
+                }
             }
         }
     }

@@ -10,47 +10,55 @@ export const modalSupport = {
             }
         },
 
-        forwardCancelEvent() {
+        forwardClosedEvent() {
             if (!this.$refs.modal) {
                 return
             }
 
-            this.$refs.modal.$on('cancel', _ => {
-                this.$emit('cancel')
-            })
+            this.$refs.modal.$on('closed', _ => this.$emit('closed'))
         },
 
-        cancel() {
+        open() {
+            if (!this.$refs.modal) {
+                return
+            }
+
+            this.$refs.modal.visible = true
+
+            this.$emit('opened')
+        },
+
+        close() {
             if (!this.$refs.modal) {
                 return
             }
 
             this.$refs.modal.visible = false
 
-            this.$emit('cancel')
+            this.$emit('closed')
         },
 
-        confirm() {
+        confirm(...args) {
             if (!this.$refs.modal) {
                 return
             }
 
-            this.$refs.modal.visible = false
+            this.$refs.modal.close()
 
-            this.$emit('confirm')
+            this.$emit('confirm', args)
         },
 
-        setVisible(visible) {
-            if (!this.$refs.modal) {
-                return
+        toggle() {
+            if (this.visible) {
+                this.close()
+            } else {
+                this.open()
             }
-
-            this.$refs.modal.visible = visible
         }
     },
 
     mounted() {
         this.forwardTitleSlot()
-        this.forwardCancelEvent()
+        this.forwardClosedEvent()
     }
 }

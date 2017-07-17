@@ -1,9 +1,9 @@
 <template>
     <button type="button"
-            class="vmc__btn"
+            class="vmc-modal__btn"
             :class="{
-                'vmc__btn--validate': validate,
-                'vmc__btn--destructive': destructive
+                'vmc-modal__btn--validate': validate,
+                'vmc-modal__btn--destructive': destructive
             }"
             :autofocus="autofocus"
             @click="$emit('click')"
