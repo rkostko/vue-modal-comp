@@ -5,7 +5,7 @@
         <input type="text"
                v-model="userInput"
                autofocus
-               @keyup.enter="confirm"
+               @keyup.enter="confirmAndPassUserInput"
         >
 
         <modal-button @click="close" slot="buttons">
@@ -13,7 +13,7 @@
         </modal-button>
 
         <modal-button :validate="true"
-                      @click="confirm(userInput)"
+                      @click="confirmAndPassUserInput"
                       slot="buttons"
         >
             {{ confirmButtonText }}
@@ -51,6 +51,12 @@
         data() {
             return {
                 userInput: null
+            }
+        },
+
+        methods: {
+            confirmAndPassUserInput() {
+                this.confirm(this.userInput)
             }
         }
     }

@@ -20,8 +20,8 @@ new Vue({
     },
 
     methods: {
-        showPromptInput(userInput) {
-            alert(userInput)
+        showPromptInput(args) {
+            alert(args[0])
         }
     }
 })
