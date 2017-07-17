@@ -1,6 +1,6 @@
 {
     "name": "vue-modal-comp",
-    "version": "0.1.4",
+    "version": "0.1.6",
     "description": "A simple modal component for Vue.js.",
     "author": "Benjamin Crozat <benjamin@croz.at>",
     "repository": "https://github.com/benjamincrozat/vue-modal-component",

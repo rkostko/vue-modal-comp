@@ -1,9 +1,10 @@
 import Vue from 'vue'
-import Modal from './Modal'
-import ModalButton from './ModalButton'
-import Alert from './Alert'
-import Confirm from './Confirm'
-import Prompt from './Prompt'
+
+export const Modal = require('./Modal')
+export const ModalButton = require('./ModalButton')
+export const Alert = require('./Alert')
+export const Confirm = require('./Confirm')
+export const Prompt = require('./Prompt')
 
 Vue.config.productionTip = false
 
