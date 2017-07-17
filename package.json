@@ -1,5 +1,5 @@
 {
-    "name": "bc-vue-modal-component",
+    "name": "vue-modal-comp",
     "version": "0.1.4",
     "description": "A simple modal component for Vue.js.",
     "author": "Benjamin Crozat <benjamin@croz.at>",
