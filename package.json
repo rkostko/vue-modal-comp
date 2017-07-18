@@ -1,10 +1,11 @@
 {
     "name": "vue-modal-comp",
-    "version": "0.1.6",
+    "version": "0.1.7",
     "description": "A simple modal component for Vue.js.",
     "author": "Benjamin Crozat <benjamin@croz.at>",
     "repository": "https://github.com/benjamincrozat/vue-modal-component",
     "license": "WTFPL",
+    "main": "src/main.js",
     "scripts": {
         "dev": "node build/dev-server.js",
         "start": "node build/dev-server.js",
